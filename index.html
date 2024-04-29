@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carlinhos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="container">
+    <p id="distance"></p>
+    <img src="Carlinhos.png">
+
+    <audio autoplay loop>
+        <source src="carlinhosaudio2.mp3" type="audio/mp3">
+    </audio>
+
+    <script>
+        let distance = 50; 
+        const distanceElement = document.getElementById('distance');
+
+        function updateDistance() {
+        if (distance > 0) {
+            distance -= 1; 
+            distanceElement.textContent = `Carlinhos esta a ${distance}km de sua casa`;
+        } else {
+            clearInterval(intervalId); 
+            distanceElement.textContent = `Nao olhe para tras`;
+        }
+        }
+
+        const intervalId = setInterval(updateDistance, 1000); 
+    </script>
+</body>
+</html>
